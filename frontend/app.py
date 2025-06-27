@@ -43,6 +43,117 @@
 #             response = handle_patient_query(st.session_state.patient_name, user_input)
 #             st.markdown(response)
 #         st.session_state.chat_history.append(("assistant", response))
+# import streamlit as st
+# import sys
+# import os
+
+# # Add backend path
+# sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend')))
+# from backend.agents.receptionist import handle_patient_query
+# from backend.agents.clinical import answer_medical_query  # ✅ added
+
+# st.set_page_config(page_title="Post-Discharge Medical Assistant", page_icon="🩺")
+# st.markdown("<h1 style='text-align: center;'>🩺 Post-Discharge Medical Chatbot</h1>", unsafe_allow_html=True)
+
+# # Session state for chat memory
+# if "chat_history" not in st.session_state:
+#     st.session_state.chat_history = []
+
+# if "patient_name" not in st.session_state:
+#     st.session_state.patient_name = ""
+
+# if "active_agent" not in st.session_state:
+#     st.session_state.active_agent = "receptionist"
+    
+# if "waiting_for_response" not in st.session_state:
+#     st.session_state.waiting_for_response = False
+
+
+# # Ask for patient name once
+# if st.session_state.patient_name == "":
+#     name_input = st.text_input("👤 Enter your full name to begin:")
+#     if name_input and st.button("Start Chat"):
+#         st.session_state.patient_name = name_input
+
+#         # ✅ Get response as dict from receptionist
+#         response = handle_patient_query(st.session_state.patient_name, name_input)
+#         st.markdown(response["reply"])
+#         st.session_state.chat_history.append(("assistant", response["reply"]))
+
+#         # ✅ Clinical handoff on startup (edge case)
+#         if response["clinical_needed"]:
+#             clinical_reply = answer_medical_query(
+#                 st.session_state.patient_name,
+#                 name_input,
+#                 response["patient_data"]
+#             )
+#             st.markdown("🔬 **Clinical Agent:**")
+#             st.markdown(clinical_reply)
+#             st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
+
+#         st.rerun()
+
+# else:
+#     # Chat history display
+#     for sender, message in st.session_state.chat_history:
+#         with st.chat_message(sender):
+#             st.markdown(message)
+
+#     # Chat input box
+#     user_input = None
+#     if not st.session_state.waiting_for_response:
+#         user_input = st.chat_input("Type your message...")
+
+#     if user_input:
+#         with st.chat_message("user"):
+#             st.markdown(user_input)
+#         st.session_state.chat_history.append(("user", user_input))
+
+#         with st.chat_message("assistant"):
+#             # response = handle_patient_query(st.session_state.patient_name, user_input)
+#             # st.markdown(response["reply"])
+#             # st.session_state.chat_history.append(("assistant", response["reply"]))
+
+#             # # ✅ Handoff to clinical if symptom detected
+#             # if response["clinical_needed"]:
+#             #     clinical_reply = answer_medical_query(
+#             #         st.session_state.patient_name,
+#             #         user_input,
+#             #         response["patient_data"]
+#             #     )
+#             #     st.markdown("🔬 **Clinical Agent:**")
+#             #     st.markdown(clinical_reply)
+#             #     st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
+#             if st.session_state.active_agent == "receptionist":
+#                 response = handle_patient_query(st.session_state.patient_name, user_input)
+#                 st.markdown(response["reply"])
+#                 st.session_state.chat_history.append(("assistant", response["reply"]))
+
+#                 if response["clinical_needed"]:
+#                     from backend.agents.clinical import answer_medical_query
+#                     st.session_state.active_agent = "clinical"  # ✅ Switch permanently to clinical
+#                     st.session_state.patient_data = response["patient_data"]  # ✅ Save for reuse
+
+#                     with st.spinner("🔬 Clinical Agent is preparing a response..."):
+#                         clinical_reply = answer_medical_query(
+#                             st.session_state.patient_name,
+#                             user_input,
+#                             st.session_state.patient_data
+#                         )
+#                         st.markdown("🔬 **Clinical Agent:**")
+#                         st.markdown(clinical_reply)
+#                         st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
+
+#             elif st.session_state.active_agent == "clinical":
+#                 from backend.agents.clinical import answer_medical_query
+#                 with st.spinner("🔬 Clinical Agent is preparing a response..."):
+#                     clinical_reply = answer_medical_query(
+#                         st.session_state.patient_name,
+#                         user_input,
+#                         st.session_state.patient_data  # ✅ Use stored patient info
+#                     )
+#                 st.markdown(clinical_reply)
+#                 st.session_state.chat_history.append(("assistant", clinical_reply))
 import streamlit as st
 import sys
 import os
@@ -50,7 +161,7 @@ import os
 # Add backend path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend')))
 from backend.agents.receptionist import handle_patient_query
-from backend.agents.clinical import answer_medical_query  # ✅ added
+from backend.agents.clinical import answer_medical_query
 
 st.set_page_config(page_title="Post-Discharge Medical Assistant", page_icon="🩺")
 st.markdown("<h1 style='text-align: center;'>🩺 Post-Discharge Medical Chatbot</h1>", unsafe_allow_html=True)
@@ -62,24 +173,35 @@ if "chat_history" not in st.session_state:
 if "patient_name" not in st.session_state:
     st.session_state.patient_name = ""
 
+if "active_agent" not in st.session_state:
+    st.session_state.active_agent = "receptionist"
+    
+if "waiting_for_response" not in st.session_state:
+    st.session_state.waiting_for_response = False
+
 # Ask for patient name once
 if st.session_state.patient_name == "":
     name_input = st.text_input("👤 Enter your full name to begin:")
     if name_input and st.button("Start Chat"):
         st.session_state.patient_name = name_input
 
-        # ✅ Get response as dict from receptionist
         response = handle_patient_query(st.session_state.patient_name, name_input)
         st.markdown(response["reply"])
         st.session_state.chat_history.append(("assistant", response["reply"]))
 
-        # ✅ Clinical handoff on startup (edge case)
         if response["clinical_needed"]:
-            clinical_reply = answer_medical_query(
-                st.session_state.patient_name,
-                name_input,
-                response["patient_data"]
-            )
+            st.session_state.active_agent = "clinical"
+            st.session_state.patient_data = response["patient_data"]
+            st.session_state.waiting_for_response = True
+
+            with st.spinner("🔬 Clinical Agent is preparing a response..."):
+                clinical_reply = answer_medical_query(
+                    st.session_state.patient_name,
+                    name_input,
+                    st.session_state.patient_data
+                )
+
+            st.session_state.waiting_for_response = False
             st.markdown("🔬 **Clinical Agent:**")
             st.markdown(clinical_reply)
             st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
@@ -93,24 +215,48 @@ else:
             st.markdown(message)
 
     # Chat input box
-    user_input = st.chat_input("Type your message...")
+    user_input = None
+    if not st.session_state.waiting_for_response:
+        user_input = st.chat_input("Type your message...")
+
     if user_input:
         with st.chat_message("user"):
             st.markdown(user_input)
         st.session_state.chat_history.append(("user", user_input))
 
         with st.chat_message("assistant"):
-            response = handle_patient_query(st.session_state.patient_name, user_input)
-            st.markdown(response["reply"])
-            st.session_state.chat_history.append(("assistant", response["reply"]))
+            if st.session_state.active_agent == "receptionist":
+                response = handle_patient_query(st.session_state.patient_name, user_input)
+                st.markdown(response["reply"])
+                st.session_state.chat_history.append(("assistant", response["reply"]))
 
-            # ✅ Handoff to clinical if symptom detected
-            if response["clinical_needed"]:
-                clinical_reply = answer_medical_query(
-                    st.session_state.patient_name,
-                    user_input,
-                    response["patient_data"]
-                )
-                st.markdown("🔬 **Clinical Agent:**")
+                if response["clinical_needed"]:
+                    st.session_state.active_agent = "clinical"
+                    st.session_state.patient_data = response["patient_data"]
+                    st.session_state.waiting_for_response = True
+
+                    with st.spinner("🔬 Clinical Agent is preparing a response..."):
+                        clinical_reply = answer_medical_query(
+                            st.session_state.patient_name,
+                            user_input,
+                            st.session_state.patient_data
+                        )
+
+                    st.session_state.waiting_for_response = False
+                    st.markdown("🔬 **Clinical Agent:**")
+                    st.markdown(clinical_reply)
+                    st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
+
+            elif st.session_state.active_agent == "clinical":
+                st.session_state.waiting_for_response = True
+
+                with st.spinner("🔬 Clinical Agent is preparing a response..."):
+                    clinical_reply = answer_medical_query(
+                        st.session_state.patient_name,
+                        user_input,
+                        st.session_state.patient_data
+                    )
+
+                st.session_state.waiting_for_response = False
                 st.markdown(clinical_reply)
-                st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
+                st.session_state.chat_history.append(("assistant", clinical_reply))
