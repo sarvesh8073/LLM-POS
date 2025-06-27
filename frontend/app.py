@@ -232,7 +232,8 @@ if st.session_state.patient_name == "":
             )
 
         st.rerun()
-
+# if st.button("🔎 Go to Patient Lookup Page"):
+#     st.switch_page("pages/Patient Lookup.py")
 else:
     for sender, message in st.session_state.chat_history:
         with st.chat_message(sender):
