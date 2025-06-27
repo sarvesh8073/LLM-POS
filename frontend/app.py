@@ -162,11 +162,13 @@
 import streamlit as st
 import sys
 import os
+from datetime import datetime
 
 # Add backend path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend')))
 from backend.agents.receptionist import handle_patient_query
 from backend.agents.clinical import answer_medical_query
+from backend.utils.logger import log_chat
 
 st.set_page_config(page_title="Post-Discharge Medical Assistant", page_icon="🩺")
 st.markdown("<h1 style='text-align: center;'>🩺 Post-Discharge Medical Chatbot</h1>", unsafe_allow_html=True)
@@ -180,7 +182,7 @@ if "patient_name" not in st.session_state:
 
 if "active_agent" not in st.session_state:
     st.session_state.active_agent = "receptionist"
-    
+
 if "waiting_for_response" not in st.session_state:
     st.session_state.waiting_for_response = False
 
@@ -193,6 +195,15 @@ if st.session_state.patient_name == "":
         response = handle_patient_query(st.session_state.patient_name, name_input)
         st.markdown(response["reply"])
         st.session_state.chat_history.append(("assistant", response["reply"]))
+
+        # ✅ Log receptionist response
+        log_chat(
+            sender="assistant",
+            message=response["reply"],
+            agent="receptionist",
+            patient_name=st.session_state.patient_name,
+            source="manual"
+        )
 
         if response["clinical_needed"]:
             st.session_state.active_agent = "clinical"
@@ -211,15 +222,22 @@ if st.session_state.patient_name == "":
             st.markdown(clinical_reply)
             st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
 
+            # ✅ Log clinical response
+            log_chat(
+                sender="assistant",
+                message=clinical_reply,
+                agent="clinical",
+                patient_name=st.session_state.patient_name,
+                source="web" if "web search" in clinical_reply.lower() else "rag"
+            )
+
         st.rerun()
 
 else:
-    # Chat history display
     for sender, message in st.session_state.chat_history:
         with st.chat_message(sender):
             st.markdown(message)
 
-    # Chat input box
     user_input = None
     if not st.session_state.waiting_for_response:
         user_input = st.chat_input("Type your message...")
@@ -228,12 +246,29 @@ else:
         with st.chat_message("user"):
             st.markdown(user_input)
         st.session_state.chat_history.append(("user", user_input))
+        log_chat(
+            sender="user",
+            message=user_input,
+            agent=st.session_state.active_agent,
+            patient_name=st.session_state.patient_name,
+            source="user"
+        )
+
 
         with st.chat_message("assistant"):
             if st.session_state.active_agent == "receptionist":
                 response = handle_patient_query(st.session_state.patient_name, user_input)
                 st.markdown(response["reply"])
                 st.session_state.chat_history.append(("assistant", response["reply"]))
+
+                # ✅ Log receptionist response
+                log_chat(
+                    sender="assistant",
+                    message=response["reply"],
+                    agent="receptionist",
+                    patient_name=st.session_state.patient_name,
+                    source="manual"
+                )
 
                 if response["clinical_needed"]:
                     st.session_state.active_agent = "clinical"
@@ -252,6 +287,15 @@ else:
                     st.markdown(clinical_reply)
                     st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
 
+                    # ✅ Log clinical response
+                    log_chat(
+                        sender="assistant",
+                        message=clinical_reply,
+                        agent="clinical",
+                        patient_name=st.session_state.patient_name,
+                        source="web" if "web search" in clinical_reply.lower() else "rag"
+                    )
+
             elif st.session_state.active_agent == "clinical":
                 st.session_state.waiting_for_response = True
 
@@ -265,6 +309,15 @@ else:
                 st.session_state.waiting_for_response = False
                 st.markdown(clinical_reply)
                 st.session_state.chat_history.append(("assistant", clinical_reply))
+
+                # ✅ Log clinical response
+                log_chat(
+                    sender="assistant",
+                    message=clinical_reply,
+                    agent="clinical",
+                    patient_name=st.session_state.patient_name,
+                    source="web" if "web search" in clinical_reply.lower() else "rag"
+                )
 
 
 
