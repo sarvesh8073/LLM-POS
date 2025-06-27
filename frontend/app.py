@@ -4,7 +4,7 @@ import os
 
 # Add backend path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend')))
-from agents.receptionist import handle_patient_query
+from backend.agents.receptionist import handle_patient_query
 
 st.set_page_config(page_title="Post-Discharge Medical Assistant", page_icon="🩺")
 st.markdown("<h1 style='text-align: center;'>🩺 Post-Discharge Medical Chatbot</h1>", unsafe_allow_html=True)
@@ -21,7 +21,10 @@ if st.session_state.patient_name == "":
     name_input = st.text_input("👤 Enter your full name to begin:")
     if name_input and st.button("Start Chat"):
         st.session_state.patient_name = name_input
-        st.session_state.chat_history.append(("assistant", f"👋 Hello {name_input}! I'm your post-discharge assistant. How are you feeling today?"))
+        # st.session_state.chat_history.append(("assistant", f"👋 Hello {name_input}! I'm your post-discharge assistant. How are you feeling today?"))
+        response = handle_patient_query(st.session_state.patient_name, name_input)
+        st.markdown(response)
+        st.session_state.chat_history.append(("assistant", response))
         st.rerun()
 else:
     # Chat display
