@@ -11,9 +11,20 @@ class RAGEngine:
         self.embedding_model = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
         self.db = FAISS.load_local(index_path, self.embedding_model, allow_dangerous_deserialization=True)
 
-    def query(self, question: str, top_k=3) -> tuple[str, list[Document]]:
+    # def query(self, question: str, top_k=3) -> tuple[str, list[Document]]:
+    #     docs = self.db.similarity_search(question, k=top_k)
+
+    #     # Combine all docs into a single context string
+    #     context = "\n\n".join([doc.page_content for doc in docs])
+    #     return context, docs
+    def query(self, question: str, top_k=3) -> tuple[str, list[str]]:
         docs = self.db.similarity_search(question, k=top_k)
 
-        # Combine all docs into a single context string
+        # Combine docs for LLM context
         context = "\n\n".join([doc.page_content for doc in docs])
-        return context, docs
+
+        # 🔧 Instead of source metadata, return raw chunks
+        raw_chunks = [doc.page_content for doc in docs]
+
+        return context, raw_chunks
+

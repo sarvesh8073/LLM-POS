@@ -60,7 +60,14 @@ Keep the response concise and adequate in length, not too huge.
 
     # Step 4: LLM call
     response = llm.invoke(prompt)
-    return response.content
+    # return response.content 
+    if sources:
+        citation_text = "\n\n📚 **Reference Chunks Used:**\n\n" + "\n\n---\n\n".join(sources)
+    else:
+        citation_text = "\n\n📚 **Reference Chunks Used:**\n\n_No specific content chunks found._"
+
+
+    return response.content + citation_text
 
 # For standalone testing
 if __name__ == "__main__":
