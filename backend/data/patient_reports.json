@@ -1,0 +1,362 @@
+[
+    {
+        "patient_name": "Lindsay Fox",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 3",
+        "medications": [
+            "Metoprolol 20mg"
+        ],
+        "dietary_restrictions": "No added salt, limit dairy intake",
+        "follow_up": "Primary care visit in 10 days",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Avoid strenuous activity for 10 days"
+    },
+    {
+        "patient_name": "Janice Duncan",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 2",
+        "medications": [
+            "Lisinopril 20mg"
+        ],
+        "dietary_restrictions": "Renal diet: low potassium, low phosphorus",
+        "follow_up": "Telehealth consultation in 5 days",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Weigh yourself daily and report any rapid gain"
+    },
+    {
+        "patient_name": "Joseph Rodriguez",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 4",
+        "medications": [
+            "Lisinopril 20mg"
+        ],
+        "dietary_restrictions": "No added salt, limit dairy intake",
+        "follow_up": "Telehealth consultation in 5 days",
+        "warning_signs": "Swelling in legs or face, difficulty breathing",
+        "discharge_instructions": "Keep legs elevated and reduce salt intake"
+    },
+    {
+        "patient_name": "Kathy Bennett",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Atorvastatin 5mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Dialysis center appointment in 1 week",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Keep legs elevated and reduce salt intake"
+    },
+    {
+        "patient_name": "Megan Hines",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Furosemide 5mg"
+        ],
+        "dietary_restrictions": "Renal diet: low potassium, low phosphorus",
+        "follow_up": "Nephrology clinic in 2 weeks",
+        "warning_signs": "Nausea, vomiting, confusion",
+        "discharge_instructions": "Keep legs elevated and reduce salt intake"
+    },
+    {
+        "patient_name": "Alexander Robinson",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Furosemide 5mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Dialysis center appointment in 1 week",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Take medications on time and follow up in 2 weeks"
+    },
+    {
+        "patient_name": "Steven Villa",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Amlodipine 20mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Dialysis center appointment in 1 week",
+        "warning_signs": "Decreased urine output, fatigue",
+        "discharge_instructions": "Take medications on time and follow up in 2 weeks"
+    },
+    {
+        "patient_name": "Christine Valdez",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Lisinopril 5mg"
+        ],
+        "dietary_restrictions": "No added salt, limit dairy intake",
+        "follow_up": "Specialist follow-up after 3 weeks",
+        "warning_signs": "Dizziness, fainting, chest pain",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Gina Carr",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 3",
+        "medications": [
+            "Furosemide 40mg"
+        ],
+        "dietary_restrictions": "High fiber, avoid red meat, limit fluid to 1L/day",
+        "follow_up": "Dialysis center appointment in 1 week",
+        "warning_signs": "Decreased urine output, fatigue",
+        "discharge_instructions": "Keep legs elevated and reduce salt intake"
+    },
+    {
+        "patient_name": "Ethan Hoffman",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 2",
+        "medications": [
+            "Metoprolol 20mg"
+        ],
+        "dietary_restrictions": "High fiber, avoid red meat, limit fluid to 1L/day",
+        "follow_up": "Telehealth consultation in 5 days",
+        "warning_signs": "Dizziness, fainting, chest pain",
+        "discharge_instructions": "Avoid strenuous activity for 10 days"
+    },
+    {
+        "patient_name": "Claudia Mitchell",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 5",
+        "medications": [
+            "Atorvastatin 5mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Primary care visit in 10 days",
+        "warning_signs": "Dizziness, fainting, chest pain",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Ricky Miller",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Furosemide 10mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Primary care visit in 10 days",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Weigh yourself daily and report any rapid gain"
+    },
+    {
+        "patient_name": "Julie Hernandez",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 2",
+        "medications": [
+            "Metoprolol 20mg"
+        ],
+        "dietary_restrictions": "High fiber, avoid red meat, limit fluid to 1L/day",
+        "follow_up": "Specialist follow-up after 3 weeks",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Avoid strenuous activity for 10 days"
+    },
+    {
+        "patient_name": "Christina Williams",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 5",
+        "medications": [
+            "Amlodipine 40mg"
+        ],
+        "dietary_restrictions": "Low sodium (2g/day), fluid restriction (1.5L/day)",
+        "follow_up": "Dialysis center appointment in 1 week",
+        "warning_signs": "Decreased urine output, fatigue",
+        "discharge_instructions": "Weigh yourself daily and report any rapid gain"
+    },
+    {
+        "patient_name": "Morgan Griffin",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 4",
+        "medications": [
+            "Atorvastatin 5mg"
+        ],
+        "dietary_restrictions": "Low sodium (2g/day), fluid restriction (1.5L/day)",
+        "follow_up": "Dialysis center appointment in 1 week",
+        "warning_signs": "Swelling in legs or face, difficulty breathing",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Paul Graham",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 2",
+        "medications": [
+            "Atorvastatin 5mg"
+        ],
+        "dietary_restrictions": "Low sodium (2g/day), fluid restriction (1.5L/day)",
+        "follow_up": "Primary care visit in 10 days",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Daniel Martinez",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 3",
+        "medications": [
+            "Lisinopril 20mg"
+        ],
+        "dietary_restrictions": "Low sodium (2g/day), fluid restriction (1.5L/day)",
+        "follow_up": "Telehealth consultation in 5 days",
+        "warning_signs": "Swelling in legs or face, difficulty breathing",
+        "discharge_instructions": "Keep legs elevated and reduce salt intake"
+    },
+    {
+        "patient_name": "Jeff Smith",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 5",
+        "medications": [
+            "Furosemide 10mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Primary care visit in 10 days",
+        "warning_signs": "Swelling in legs or face, difficulty breathing",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Kenneth Richardson",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Atorvastatin 5mg"
+        ],
+        "dietary_restrictions": "High fiber, avoid red meat, limit fluid to 1L/day",
+        "follow_up": "Specialist follow-up after 3 weeks",
+        "warning_signs": "Dizziness, fainting, chest pain",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Henry Whitney",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 3",
+        "medications": [
+            "Furosemide 5mg"
+        ],
+        "dietary_restrictions": "Renal diet: low potassium, low phosphorus",
+        "follow_up": "Specialist follow-up after 3 weeks",
+        "warning_signs": "Decreased urine output, fatigue",
+        "discharge_instructions": "Weigh yourself daily and report any rapid gain"
+    },
+    {
+        "patient_name": "James Smith",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 4",
+        "medications": [
+            "Lisinopril 20mg"
+        ],
+        "dietary_restrictions": "Renal diet: low potassium, low phosphorus",
+        "follow_up": "Nephrology clinic in 2 weeks",
+        "warning_signs": "Dizziness, fainting, chest pain",
+        "discharge_instructions": "Keep legs elevated and reduce salt intake"
+    },
+    {
+        "patient_name": "Virginia Williams",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 5",
+        "medications": [
+            "Lisinopril 5mg"
+        ],
+        "dietary_restrictions": "No added salt, limit dairy intake",
+        "follow_up": "Telehealth consultation in 5 days",
+        "warning_signs": "Nausea, vomiting, confusion",
+        "discharge_instructions": "Avoid strenuous activity for 10 days"
+    },
+    {
+        "patient_name": "Stacey Rodriguez",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 5",
+        "medications": [
+            "Metoprolol 10mg"
+        ],
+        "dietary_restrictions": "High fiber, avoid red meat, limit fluid to 1L/day",
+        "follow_up": "Telehealth consultation in 5 days",
+        "warning_signs": "Swelling in legs or face, difficulty breathing",
+        "discharge_instructions": "Avoid strenuous activity for 10 days"
+    },
+    {
+        "patient_name": "Wayne Schultz",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Furosemide 20mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Telehealth consultation in 5 days",
+        "warning_signs": "Decreased urine output, fatigue",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Vanessa Gibson",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 3",
+        "medications": [
+            "Metoprolol 40mg"
+        ],
+        "dietary_restrictions": "Low sodium (2g/day), fluid restriction (1.5L/day)",
+        "follow_up": "Primary care visit in 10 days",
+        "warning_signs": "Dizziness, fainting, chest pain",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Daniel Dunlap",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 2",
+        "medications": [
+            "Lisinopril 5mg"
+        ],
+        "dietary_restrictions": "High fiber, avoid red meat, limit fluid to 1L/day",
+        "follow_up": "Nephrology clinic in 2 weeks",
+        "warning_signs": "Weight gain >2kg in 2 days, headaches",
+        "discharge_instructions": "Avoid strenuous activity for 10 days"
+    },
+    {
+        "patient_name": "Jennifer Price",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Furosemide 10mg"
+        ],
+        "dietary_restrictions": "Low sodium (2g/day), fluid restriction (1.5L/day)",
+        "follow_up": "Primary care visit in 10 days",
+        "warning_signs": "Dizziness, fainting, chest pain",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Mandy Jones",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Atorvastatin 20mg"
+        ],
+        "dietary_restrictions": "Low protein (40g/day), no processed foods",
+        "follow_up": "Specialist follow-up after 3 weeks",
+        "warning_signs": "Swelling in legs or face, difficulty breathing",
+        "discharge_instructions": "Weigh yourself daily and report any rapid gain"
+    },
+    {
+        "patient_name": "Cody Coleman",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 1",
+        "medications": [
+            "Furosemide 10mg"
+        ],
+        "dietary_restrictions": "Low sodium (2g/day), fluid restriction (1.5L/day)",
+        "follow_up": "Specialist follow-up after 3 weeks",
+        "warning_signs": "Swelling in legs or face, difficulty breathing",
+        "discharge_instructions": "Take medications on time and follow up in 2 weeks"
+    },
+    {
+        "patient_name": "Pamela Young",
+        "discharge_date": "2025-06-23",
+        "primary_diagnosis": "Chronic Kidney Disease Stage 4",
+        "medications": [
+            "Lisinopril 5mg"
+        ],
+        "dietary_restrictions": "No added salt, limit dairy intake",
+        "follow_up": "Nephrology clinic in 2 weeks",
+        "warning_signs": "Decreased urine output, fatigue",
+        "discharge_instructions": "Monitor blood pressure and keep a log"
+    }
+]
