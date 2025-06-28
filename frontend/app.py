@@ -173,6 +173,8 @@ from backend.utils.logger import log_chat
 
 st.set_page_config(page_title="Post-Discharge Medical Assistant", page_icon="🩺")
 st.markdown("<h1 style='text-align: center;'>🩺 Post-Discharge Medical Chatbot</h1>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center;'>This is an AI assistant for educational purposes only</h3>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align: center;'>Always consult healthcare professionals for medical advice</h3>", unsafe_allow_html=True)
 
 # Session state for chat memory
 if "chat_history" not in st.session_state:
@@ -318,7 +320,7 @@ else:
                         time.sleep(0.05)  # Speed: 50ms per word
 
                     placeholder.markdown(clinical_reply)
-                    st.session_state.chat_history.append(("assistant", typed_text.strip()))
+                    st.session_state.chat_history.append(("assistant", clinical_reply))
 
 
                     # ✅ Log clinical response
@@ -352,7 +354,7 @@ else:
                     time.sleep(0.05)  # Speed: 50ms per word
 
                 placeholder.markdown(clinical_reply)
-                st.session_state.chat_history.append(("assistant", typed_text.strip()))
+                st.session_state.chat_history.append(("assistant", clinical_reply))
 
 
                 # ✅ Log clinical response

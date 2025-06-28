@@ -143,9 +143,9 @@ Are you taking your medications regularly?
     negative_keywords = ["no", "not", "forgot", "missed", "skipped", "didn't", "did not"]
     if any(word in msg_lower for word in negative_keywords):
         greeting = "\n\n❗It’s important to follow your prescription carefully. Please try to stay consistent — it really helps with your recovery."
-    followup = ["follow-up","followup","appointment"]
+    followup = ["follow-up","followup","appointment","follow up"]
     if any(word in msg_lower for word in followup):
-        greeting = f"\n\n {result['follow_up']}"
+        greeting = f"Next Follow-Up schedule: \n\n {result['follow_up']}"
     return {
         "reply": greeting.strip(),
         "clinical_needed": clinical_needed,

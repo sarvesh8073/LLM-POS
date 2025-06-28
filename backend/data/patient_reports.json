@@ -358,5 +358,18 @@
         "follow_up": "Nephrology clinic in 2 weeks",
         "warning_signs": "Decreased urine output, fatigue",
         "discharge_instructions": "Monitor blood pressure and keep a log"
+    },
+    {
+        "patient_name": "Lalit Pandey",
+        "discharge_date": "2025-06-28",
+        "primary_diagnosis": "CKD stage 1",
+        "medications": [
+            "Paracitamol",
+            "Supradyne"
+        ],
+        "dietary_restrictions": "eat everything",
+        "follow_up": "nothing",
+        "warning_signs": "pain",
+        "discharge_instructions": "rest "
     }
 ]
