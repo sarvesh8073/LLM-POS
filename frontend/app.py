@@ -243,6 +243,27 @@ else:
     if not st.session_state.waiting_for_response:
         user_input = st.chat_input("Type your message...")
 
+        # ✅ Suggested prompts
+        with st.expander("💡 Suggested Questions"):
+            cols = st.columns(2)
+            if cols[0].button("I have leg swelling"):
+                st.session_state.suggested_input = "I have leg swelling"
+                st.rerun()
+            if cols[1].button("I forgot to take my meds"):
+                st.session_state.suggested_input = "I forgot to take my meds"
+                st.rerun()
+            if cols[0].button("When is my next follow-up?"):
+                st.session_state.suggested_input = "When is my next follow-up?"
+                st.rerun()
+            if cols[1].button("Can I eat bananas with CKD?"):
+                st.session_state.suggested_input = "Can I eat bananas with CKD?"
+                st.rerun()
+    # ✅ Handle suggested input if present
+    if "suggested_input" in st.session_state:
+        user_input = st.session_state.suggested_input
+        del st.session_state.suggested_input  # prevent replay on rerun
+
+
     if user_input:
         with st.chat_message("user"):
             st.markdown(user_input)

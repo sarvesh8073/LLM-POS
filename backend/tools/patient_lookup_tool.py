@@ -17,9 +17,10 @@ class PatientLookupTool:
         print(f"[✅] Found: {len(matches)} matches")
 
         if len(matches) == 0:
-            return f"❌ No patient found with the name: {name}"
-        elif len(matches) > 1:
-            return f"⚠️ Multiple patients found with the name: {name}. Please refine the search."
+            
+            return f"❌ No patient found with the name: {name}, please reload & try again."
+        # elif len(matches) > 1:
+        #     return f"⚠️ Multiple patients found with the name: {name}. Please refine the search."
         else:
             return matches[0]
 
