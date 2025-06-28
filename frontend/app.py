@@ -163,6 +163,7 @@ import streamlit as st
 import sys
 import os
 from datetime import datetime
+import time
 
 # Add backend path
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'backend')))
@@ -306,8 +307,19 @@ else:
 
                     st.session_state.waiting_for_response = False
                     st.markdown("🔬 **Clinical Agent:**")
-                    st.markdown(clinical_reply)
-                    st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
+                    # st.markdown(clinical_reply)
+                    # st.session_state.chat_history.append(("assistant", f"🔬 Clinical Agent:\n{clinical_reply}"))
+                    placeholder = st.empty()
+                    typed_text = ""
+                    for word in clinical_reply.split():
+                        typed_text += word + " "
+                        # placeholder.markdown(typed_text + "▌")  # Cursor effect
+                        placeholder.markdown(typed_text.replace("\n", "<br>") + "▌", unsafe_allow_html=True)
+                        time.sleep(0.05)  # Speed: 50ms per word
+
+                    placeholder.markdown(clinical_reply)
+                    st.session_state.chat_history.append(("assistant", typed_text.strip()))
+
 
                     # ✅ Log clinical response
                     log_chat(
@@ -329,8 +341,19 @@ else:
                     )
 
                 st.session_state.waiting_for_response = False
-                st.markdown(clinical_reply)
-                st.session_state.chat_history.append(("assistant", clinical_reply))
+                # st.markdown(clinical_reply)
+                # st.session_state.chat_history.append(("assistant", clinical_reply))
+                placeholder = st.empty()
+                typed_text = ""
+                for word in clinical_reply.split():
+                    typed_text += word + " "
+                    # placeholder.markdown(typed_text + "▌")  # Cursor effect
+                    placeholder.markdown(typed_text.replace("\n", "<br>") + "▌", unsafe_allow_html=True)
+                    time.sleep(0.05)  # Speed: 50ms per word
+
+                placeholder.markdown(clinical_reply)
+                st.session_state.chat_history.append(("assistant", typed_text.strip()))
+
 
                 # ✅ Log clinical response
                 log_chat(

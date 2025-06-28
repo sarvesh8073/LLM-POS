@@ -157,9 +157,13 @@ Keep the response concise and adequate in length, not too huge.
 
     # Step 6: Build citation footer
     if sources and not use_web:
-        citation_text = "\n\n📚 **Reference Chunks Used:**\n\n" + "\n\n---\n\n".join(
-            chunk.strip() for chunk in sources
-        )
+        citation_text = "\n\n📚 **Reference Chunks Used (Preview):**\n\n"
+        for idx, chunk in enumerate(sources, 1):
+            snippet = chunk.strip()[:300]  # Limit to first 300 characters
+            if len(chunk.strip()) > 300:
+                snippet += "..."  # Add ellipsis if it's truncated
+            citation_text += f"{idx}. {snippet}\n\n"
+
     elif use_web:
         citation_text = f"\n\n📚 **Web Info Used:**\n\n{web_info.strip()}"
     else:
