@@ -371,5 +371,18 @@
         "follow_up": "nothing",
         "warning_signs": "pain",
         "discharge_instructions": "rest "
+    },
+    {
+        "patient_name": "John Doe",
+        "discharge_date": "2025-06-27",
+        "primary_diagnosis": "CKD 2",
+        "medications": [
+            "Paracitamol",
+            "amoxycyclin"
+        ],
+        "dietary_restrictions": "Refrain From eating dairy products",
+        "follow_up": "Follow up in 2 weeks",
+        "warning_signs": "Pain in right leg",
+        "discharge_instructions": "Exercise regularly."
     }
 ]
